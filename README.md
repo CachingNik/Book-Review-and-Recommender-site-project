@@ -3,6 +3,6 @@
 My First Software Project\
 Functions:\
 1.Login\
-2.Signup\
+2.Signup
 
 Integration of Login and Signup Module in process...
