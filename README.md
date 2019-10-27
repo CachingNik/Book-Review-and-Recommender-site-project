@@ -1,4 +1,4 @@
-**Book Review and Recommender**: book:
+**Book Review and Recommender** :book:
 
 My First Software Project\
 Functions:\
@@ -6,4 +6,4 @@ Functions:\
 2.Signup
 
 Integration completed\
-Dashboard under constructin!
+Dashboard under construction!
