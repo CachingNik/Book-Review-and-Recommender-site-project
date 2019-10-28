@@ -26,11 +26,13 @@
                 Hi, {{request.user.first_name}}</font>
             </a>
             </li>
+            {% if request.path != '/books/add/' %}
             <li class="">
-                <a href="/">
+                <a href="{% url 'books:addbook' %}">
                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp; Add Book
                 </a>
             </li>
+            {% endif %}
             <li class="">
                 <a href="{% url 'logout' %}">
                     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout

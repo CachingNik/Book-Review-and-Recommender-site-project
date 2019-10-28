@@ -6,4 +6,5 @@ app_name = 'books'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^add/$', views.addbook, name='addbook')
 ]
