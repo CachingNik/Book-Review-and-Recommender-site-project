@@ -5,4 +5,4 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-	return render(request, 'books/base.html')
+	return render(request, 'books/dashboard.html')

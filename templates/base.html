@@ -20,6 +20,23 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+            <li class="">
+                <a><font size="5" face="roboto">
+                Hi, {{request.user.first_name}}</font>
+            </a>
+            </li>
+            <li class="">
+                <a href="/">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp; Add Book
+                </a>
+            </li>
+            <li class="">
+                <a href="{% url 'logout' %}">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
+                </a>
+            </li>
+            {% else %}
             <li class="">
                 <a href="{% url 'login' %}">
                     <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp; Login
@@ -30,7 +47,7 @@
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Sign up
                 </a>
             </li>
-
+            {% endif %}
         </ul>
     </div>
     </div>
