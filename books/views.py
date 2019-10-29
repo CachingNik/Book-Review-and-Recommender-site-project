@@ -7,17 +7,21 @@ from .models import Book
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    return render(request, 'books/dashboard.html')
+    all_books = Book.objects.all()
+    return render(request, 'books/dashboard.html', {'all_books': all_books})
 
 @login_required(login_url='/accounts/login/')
 def addbook(request):
     if request.method == 'POST':
         form = add_book(request.POST)
         if form.is_valid():
-            form.save()
+            fs= form.save(commit=False)
+            fs.added_by_user = request.user.username
+            fs.save()
             return redirect('books:index')
     else:
         form = add_book()
+        form.added_by_user = request.user
     return render(request, 'books/addbook.html', {'form': form})
 
 def allbooks(request):
