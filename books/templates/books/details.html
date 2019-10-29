@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="col-lg-3 col-md-4 col-sm-6 " >
+      <div class = "thumbnail">
+           <img src = "{{this_book.image}}" alt = "Generic placeholder thumbnail" style="width:500px;height:600px;">
+        
+      
+         <div class = "caption">
+          <h3>{{this_book.name}}</h3>
+          <p>{{this_book.author}}</p>
+           <p></p>
+         </div>
+      </div>
+</div>
+ 
+<div class="col-lg-9 col-md-4 col-sm-6 " >
+      <div class="" >
+                   
+      
+		  <font color="white">         
+          <h3><b>{{this_book.name}}</b></h3>
+          <p><b>Author:</b> {{this_book.author}}</p>
+           <p><b>Price:</b> ₹ {{this_book.price}}</p>
+           <p><b>Category:</b> {{this_book.type}}</p>
+ 			</font>
+            <a href = "#" class = "btn btn-danger" role = "button">
+                 Read Sample <span class="glyphicon glyphicon-book"></span>
+              </a>
+ 
+         
+      </div>
+</div>
+{% endblock %}

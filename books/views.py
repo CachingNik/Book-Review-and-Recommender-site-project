@@ -19,3 +19,15 @@ def addbook(request):
     else:
         form = add_book()
     return render(request, 'books/addbook.html', {'form': form})
+
+def allbooks(request):
+	all_books = Book.objects.all()
+	return render(request, 'books/allbooks.html', {'all_books': all_books})
+
+@login_required(login_url='/accounts/login/')
+def details(request, book_id):
+    try:
+        this_book = Book.objects.get(id=book_id)
+    except Book.DoesNotExist:
+        raise Http404('This book does not exist')
+    return render(request, 'books/details.html', {'this_book': this_book})
