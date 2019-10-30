@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+<div class="jumbotron">
+{% if messages %}
+{% for k in messages %}
+		<font style="color: red"><h2>{{k}}</h2>
+{% endfor %}
+
+{% elif items %}
+<h2>Search Results:</h2>
+<ul>
+{% for k in items %}
+<li>
+<a href="/books/{{k.id}}" ><font size=5>{{k.name}}</font></a>
+</li>
+{% endfor %}
+</ul>
+
+{% else %}
+<h2>Please enter text to search.</h2>
+{% endif %}
+</div>
+</div>
+{% endblock %}

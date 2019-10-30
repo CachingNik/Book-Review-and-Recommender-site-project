@@ -4,6 +4,8 @@ from django.http import Http404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import add_book
 from .models import Book
+from django.db.models import Q
+from django.contrib import messages
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -35,3 +37,20 @@ def details(request, book_id):
     except Book.DoesNotExist:
         raise Http404('This book does not exist')
     return render(request, 'books/details.html', {'this_book': this_book})
+
+def searcher(request):
+    if request.method == 'POST':
+        srch = request.POST['srh']
+
+        if srch:
+            match = Book.objects.filter(Q(name__icontains=srch) | Q(author__icontains=srch))
+
+            if match:
+                return render(request, 'books/searcher.html', {'items': match})
+            else:
+                messages.error(request, 'No result found!!')
+
+        else:
+            return redirect('books:index')
+
+    return render(request, 'books/searcher.html')
