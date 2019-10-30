@@ -1,5 +1,5 @@
 from django import forms
-from .models import Book
+from .models import Book, Review
 
 
 class add_book(forms.ModelForm):
@@ -14,3 +14,9 @@ class add_book(forms.ModelForm):
             'type': 'Book Genre',
             'image': 'Cover page Image'
             }
+
+class review_book(forms.ModelForm):
+
+      class Meta:
+            model = Review
+            fields = ('content',)

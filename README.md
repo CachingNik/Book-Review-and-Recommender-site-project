@@ -7,6 +7,7 @@ Functions:\
 3.Logout\
 4.Add Book (Form for inserting book details has been added, every new book added is saved into the database.)\
 5.View Book Details\
-6.Search Books
+6.Search Books\
+7.Review Books
 
 Note: Dashboard (Currently shows the books added by user currently logged in) under construction.

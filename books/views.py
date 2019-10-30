@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.template import loader
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import add_book
-from .models import Book
+from .forms import add_book, review_book
+from .models import Book, Review
 from django.db.models import Q
 from django.contrib import messages
 
@@ -32,11 +32,21 @@ def allbooks(request):
 
 @login_required(login_url='/accounts/login/')
 def details(request, book_id):
+    reviews = Review.objects.filter(book=book_id)
     try:
         this_book = Book.objects.get(id=book_id)
     except Book.DoesNotExist:
         raise Http404('This book does not exist')
-    return render(request, 'books/details.html', {'this_book': this_book})
+    if request.method =='POST':
+        review_form = review_book(request.POST)
+        if review_form.is_valid():
+            content = request.POST.get('content')
+            review = Review.objects.create(book=this_book, user=request.user, content=content)
+            review.save()
+            return HttpResponseRedirect(request.path)
+    else:
+        review_form = review_book()
+    return render(request, 'books/details.html', {'this_book': this_book, 'reviews': reviews, 'review_form': review_form})
 
 def searcher(request):
     if request.method == 'POST':
@@ -51,6 +61,6 @@ def searcher(request):
                 messages.error(request, 'No result found!!')
 
         else:
-            return redirect('books:index')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
     return render(request, 'books/searcher.html')

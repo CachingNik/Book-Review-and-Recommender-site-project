@@ -14,7 +14,7 @@
       </div>
 </div>
  
-<div class="col-lg-9 col-md-4 col-sm-6 " >
+<div class="" >
       <div class="" >
                    
       
@@ -31,5 +31,32 @@
  
          
       </div>
+</div>
+<br style="line-height:38;">
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ review_form.as_p }}
+    <button type="submit" class="btn btn-online-success">Review</button>
+</form>
+<div class="container">
+  <div class="jumbotron">
+    <font color="blue"><h2><i><b>Reviews:</b></i></h2></font>
+  </div>
+</div>
+<div class="container">
+<div class="jumbotron">
+{% if reviews %}
+  <h4><b>{{reviews.count}} Review{{reviews|pluralize}}</b></h4>
+{% for review in reviews %}
+<blockquote class="blockquote">
+  <p class="mb-0">{{review.content}}</p>
+  <footer class="blockquote-footer">by <cite title="Source Title">{{review.user.first_name|capfirst}} {{review.user.last_name|capfirst}} (@{{review.user.username}})<br>{{review.time_added}}</cite></footer>
+</blockquote>
+{% endfor %}
+{% else %}
+<h3><b><i>Book hasn't been reviewed by any user yet.</i></b></h3>
+{% endif %}
+</div>
 </div>
 {% endblock %}
