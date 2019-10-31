@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+answer = (('Y','Yes'),('N','No'))
+
 class Book(models.Model):
     name = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
@@ -8,6 +10,7 @@ class Book(models.Model):
     type = models.CharField(max_length=100)
     image = models.CharField(max_length=300)
     added_by_user = models.ForeignKey(User)
+    admin_choice = models.CharField(max_length=3, choices=answer, default='N')
 
     def __str__(self):
     	return self.name + '-' + self.author

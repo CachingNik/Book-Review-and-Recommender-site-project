@@ -18,7 +18,7 @@ def addbook(request):
         form = add_book(request.POST)
         if form.is_valid():
             fs= form.save(commit=False)
-            fs.added_by_user = request.user.username
+            fs.added_by_user = request.user
             fs.save()
             return redirect('books:index')
     else:
