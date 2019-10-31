@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<ul>
 <div class="container">
   	<div class="jumbotron">
-    	<font color="blue"><h2><i><b>Books added by you:</b></i></h2>
+    	<font color="blue"><h2><i><b>Books added by you:</b></i></h2></font>
     </div>
 </div>
-{% for book in all_books %}
-{% if book.added_by_user.username == request.user.username %}
+{% for book in your_books %}
 <div class="col-lg-3 col-md-4 col-sm-6 " >
 <div class = "thumbnail">
 <img src="{{book.image}}" style="width:500px;height:600px;" alt = "Generic placeholder thumbnail">
@@ -17,7 +15,23 @@
 </a>
 </div>
 </div>
+{% endfor %}
+<br style="line-height:{{br}};">
+<div class="container">
+  	<div class="jumbotron">
+    	<font color="blue"><h2><i><b>Recommendations for you:</b></i></h2></font>
+    </div>
+</div>
+{% for rcdn in rcdns %}
+{% if request.user != rcdn.added_by_user %}
+<div class="col-lg-3 col-md-4 col-sm-6 " >
+<div class = "thumbnail">
+<img src="{{rcdn.image}}" style="width:500px;height:600px;" alt = "Generic placeholder thumbnail">
+<a href = "/books/{{rcdn.id}}">
+<h3>{{rcdn.name}}</h3>
+</a>
+</div>
+</div>
 {% endif %}
 {% endfor %}
-</ul>
 {% endblock %}
