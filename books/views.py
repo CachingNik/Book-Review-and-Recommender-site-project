@@ -6,18 +6,15 @@ from .forms import add_book, review_book
 from .models import Book, Review
 from django.db.models import Q
 from django.contrib import messages
-import math
 
 @login_required(login_url='/accounts/login/')
 def index(request):
     your_books = Book.objects.filter(added_by_user=request.user)
-    items = your_books.count()
-    br = 50*(math.ceil(float(items)/4))
     rcdns = Book.objects.none()
     for your_book in your_books:
         match = Book.objects.filter(Q(author__icontains=your_book.author) | Q(type__icontains=your_book.type))
         rcdns = rcdns | match
-    return render(request, 'books/dashboard.html', {'your_books': your_books, 'br': br, 'rcdns': rcdns})
+    return render(request, 'books/dashboard.html', {'your_books': your_books, 'rcdns': rcdns})
 
 @login_required(login_url='/accounts/login/')
 def addbook(request):

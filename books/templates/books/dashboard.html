@@ -6,17 +6,18 @@
     	<font color="blue"><h2><i><b>Books added by you:</b></i></h2></font>
     </div>
 </div>
+<div class="container">
+  	<div class="jumbotron">
+	<ul>
 {% for book in your_books %}
-<div class="col-lg-3 col-md-4 col-sm-6 " >
-<div class = "thumbnail">
-<img src="{{book.image}}" style="width:500px;height:600px;" alt = "Generic placeholder thumbnail">
 <a href = "/books/{{book.id}}">
-<h3>{{book.name}}</h3>
+<h3>
+<li>{{book.name}}</li></h3>
 </a>
-</div>
-</div>
 {% endfor %}
-<br style="line-height:{{br}};">
+</ul>
+</div>
+</div>
 <div class="container">
   	<div class="jumbotron">
     	<font color="blue"><h2><i><b>Recommendations for you:</b></i></h2></font>
