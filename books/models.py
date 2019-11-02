@@ -13,16 +13,16 @@ class Book(models.Model):
     admin_choice = models.CharField(max_length=3, choices=answer, default='N')
 
     def __str__(self):
-    	return self.name + '-' + self.author
+        return self.name + '-' + self.author
 
 
 class Review(models.Model):
-	book = models.ForeignKey(Book)
-	user = models.ForeignKey(User)
-	content = models.TextField(max_length=500)
-	time_added = models.DateTimeField(auto_now_add=True)
+    book = models.ForeignKey(Book)
+    user = models.ForeignKey(User)
+    content = models.TextField(max_length=500)
+    time_added = models.DateTimeField(auto_now_add=True)
 
-	def __str__(self):
-		return '{}-{}'.format(self.book.name + '(' + self.book.author + ')', str(self.user.username))
+    def __str__(self):
+        return '{}-{}'.format(self.book.name + '(' + self.book.author + ')', str(self.user.username))
 
 # Create your models here.
