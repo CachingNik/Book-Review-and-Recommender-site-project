@@ -9,7 +9,7 @@ Functions:\
 5.View Book Details\
 6.Search Books\
 7.Review Books\
-8.Admin's Choice
+8.Admin's Choice\
+9.Book Recommender
 
-Note: Dashboard (Currently shows the books added by user currently logged in) & homepage under construction. Recommender system has been added (based on the books added by you).
-RS will further be improved.
+Note: Homepage under constructions. On login, user redirected to his/her dashboard.

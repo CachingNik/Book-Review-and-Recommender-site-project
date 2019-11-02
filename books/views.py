@@ -10,10 +10,14 @@ from django.contrib import messages
 @login_required(login_url='/accounts/login/')
 def index(request):
     your_books = Book.objects.filter(added_by_user=request.user)
+    reviewed_books = Review.objects.filter(user=request.user)
     rcdns = Book.objects.none()
     for your_book in your_books:
         match = Book.objects.filter(Q(author__icontains=your_book.author) | Q(type__icontains=your_book.type))
         rcdns = rcdns | match
+    for any_book in reviewed_books:
+        match1 = Book.objects.filter(Q(author__icontains=any_book.book.author) | Q(type__icontains=any_book.book.type))
+        rcdns = rcdns | match1
     return render(request, 'books/dashboard.html', {'your_books': your_books, 'rcdns': rcdns})
 
 @login_required(login_url='/accounts/login/')
