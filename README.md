@@ -14,4 +14,4 @@ Functions:\
 
 Note: Homepage under constructions. On login, user redirected to his/her dashboard.
 
-Link to my website: [BRARS](rrbookweb.herokuapp.com)
+Link to my website: [BRARS](www.rrbookweb.herokuapp.com)
