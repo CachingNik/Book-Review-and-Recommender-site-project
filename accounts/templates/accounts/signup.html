@@ -1,12 +1,14 @@
-{% load staticfiles %}
-{% block content %}
-<head>
-  <link rel="stylesheet" type = "text/css" href = "{% static 'style.css' %}">
-</head>
-  <h2>Sign up</h2>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="container">
+	<div class="jumbotron">
+<h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <button type="submit">Sign up</button>
   </form>
+</div>
+</div>
 {% endblock %}
