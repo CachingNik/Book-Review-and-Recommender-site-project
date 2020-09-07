@@ -1,4 +1,4 @@
-**Book Review and Recommender** :book:
+#**Book Review and Recommender** :book:
 
 My First Software Project\
 Functions:\
@@ -15,3 +15,5 @@ Functions:\
 Note: Homepage under constructions. On login, user redirected to his/her dashboard.
 
 Link to my website: [BRARS](https://rrbookweb.herokuapp.com)
+
+##Project Closed

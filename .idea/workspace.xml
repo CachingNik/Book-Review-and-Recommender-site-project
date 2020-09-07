@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93290809-26e3-4de4-8dfd-49c798f598ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mysite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,9 +77,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="101" width="1256" height="912" key="SettingsEditor" timestamp="1599483863187">
+    <state x="368" y="101" width="1256" height="912" key="SettingsEditor" timestamp="1599484201853">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="368" y="101" width="1256" height="912" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1599483863187" />
+    <state x="368" y="101" width="1256" height="912" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1599484201853" />
   </component>
 </project>
