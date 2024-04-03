@@ -99,7 +99,7 @@
   <div class="jumbotron">
 <form method="post">
     {% csrf_token %}
-    {{ review_form|crispy }}
+    {{ review_form }}
     <button type="submit" class="btn btn-online-success">Review</button>
 </form>
 </div>

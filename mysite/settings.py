@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_-=1m5moq&40dng)3!!ikdb3)svs2o+c%j5@z6srvvp2bvumqh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -132,6 +132,8 @@ STATICFILES_DIRS = (
 
 LOGOUT_REDIRECT_URL = '/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 django_heroku.settings(locals())

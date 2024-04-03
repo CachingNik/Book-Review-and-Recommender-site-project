@@ -1,13 +1,13 @@
-from django.conf.urls import url
+from django.urls import re_path
 from django.contrib import admin
 from . import views
 
 app_name = 'books'
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^add/$', views.addbook, name='addbook'),
-    url(r'^all/$', views.allbooks, name='allbooks'),
-    url(r'^(?P<book_id>[0-9]+)/$', views.details, name='details'),
-    url(r'^search/$', views.searcher, name='searcher')
+    re_path(r'^$', views.index, name='index'),
+    re_path(r'^add/$', views.addbook, name='addbook'),
+    re_path(r'^all/$', views.allbooks, name='allbooks'),
+    re_path(r'^(?P<book_id>[0-9]+)/$', views.details, name='details'),
+    re_path(r'^search/$', views.searcher, name='searcher')
 ]

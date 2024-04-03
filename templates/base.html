@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,9 +52,10 @@
             </li>
             {% endif %}
             <li class="">
-                <a href="{% url 'logout' %}">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
-                </a>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<button type="submit">Logout</button>
+                </form>
             </li>
             {% else %}
             {% if request.path != '/accounts/login/' %}

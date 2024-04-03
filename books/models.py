@@ -9,7 +9,7 @@ class Book(models.Model):
     price = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     image = models.CharField(max_length=300)
-    added_by_user = models.ForeignKey(User)
+    added_by_user = models.ForeignKey(User, on_delete=models.CASCADE)
     admin_choice = models.CharField(max_length=3, choices=answer, default='N')
 
     def __str__(self):
@@ -17,8 +17,8 @@ class Book(models.Model):
 
 
 class Review(models.Model):
-    book = models.ForeignKey(Book)
-    user = models.ForeignKey(User)
+    book = models.ForeignKey(Book, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
     time_added = models.DateTimeField(auto_now_add=True)
 
