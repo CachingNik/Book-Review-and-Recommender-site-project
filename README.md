@@ -12,8 +12,4 @@ Functions:\
 8.Admin's Choice\
 9.Book Recommender
 
-Note: Homepage under constructions. On login, user redirected to his/her dashboard.
-
-Link to my website: [BRARS](https://rrbookweb.herokuapp.com)
-
 ## Project Closed
